@@ -2,10 +2,10 @@ delete from tAction
 go
 insert tAction (ActionID, Brief, Name)
           select 0, 'acNone'           , ''
-union all select 1, 'acInsert'         , 'Добавление данных'
-union all select 2, 'acUpdate'         , 'Изменение данных'
-union all select 3, 'acDelete'         , 'Удаление данных'
-union all select 4, 'acShow'           , 'Просмотр данных'
+union all select 1, 'acInsert'         , 'Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С…'
+union all select 2, 'acUpdate'         , 'РР·РјРµРЅРµРЅРёРµ РґР°РЅРЅС‹С…'
+union all select 3, 'acDelete'         , 'РЈРґР°Р»РµРЅРёРµ РґР°РЅРЅС‹С…'
+union all select 4, 'acShow'           , 'РџСЂРѕСЃРјРѕС‚СЂ РґР°РЅРЅС‹С…'
 union all select 5, 'acCancel'         , ''
 union all select 6, 'acLookup'         , ''
 union all select 7, 'acChecking'       , ''
@@ -24,5 +24,5 @@ union all select 19,'acHolding'        , ''
 union all select 20,'acUserAction'     , ''
 union all select 21,'acLogin'          , ''
 union all select 22,'acExit'           , ''
-union all select 23,'acRefresh'        , 'Обновление'
+union all select 23,'acRefresh'        , 'РћР±РЅРѕРІР»РµРЅРёРµ'
 
