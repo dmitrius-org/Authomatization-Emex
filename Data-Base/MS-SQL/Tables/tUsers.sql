@@ -1,6 +1,5 @@
-if OBJECT_ID('tUser') is not null
-  drop table tUser
-go
+if OBJECT_ID('tUser') is null
+drop table tUser
 /* **********************************************************
 tUser - пользователи
 ********************************************************** */
