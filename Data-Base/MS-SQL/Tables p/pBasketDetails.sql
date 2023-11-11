@@ -7,7 +7,7 @@ create table pBasketDetails
 (
  Spid                  numeric(18,0) default @@spid--  
 ,OrderID               numeric(18,0) -- ИД заказа
-,ClientID	             numeric(18,0) -- ИД Клиента
+,ClientID              numeric(18,0) -- ИД Клиента
 ,Comments              nvarchar(64)  -- комментарий
 ,UploadedPrice         decimal(18,2) -- цена заданная клиентом
 ,CoeffMaxAgree         decimal(18,2) -- максимальный коэффициент превышения цены продажи для клиента над ценой, показанной на сайте
