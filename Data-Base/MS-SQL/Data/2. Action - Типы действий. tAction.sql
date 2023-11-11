@@ -1,0 +1,28 @@
+delete from tAction
+go
+insert tAction (ActionID, Brief, Name)
+          select 0, 'acNone'           , ''
+union all select 1, 'acInsert'         , 'Добавление данных'
+union all select 2, 'acUpdate'         , 'Изменение данных'
+union all select 3, 'acDelete'         , 'Удаление данных'
+union all select 4, 'acShow'           , 'Просмотр данных'
+union all select 5, 'acCancel'         , ''
+union all select 6, 'acLookup'         , ''
+union all select 7, 'acChecking'       , ''
+union all select 8, 'acCheckKey'       , ''
+union all select 9, 'acChildInsert'    , ''
+union all select 10,'acVerify'         , ''
+union all select 11,'acHistory'        , ''
+union all select 12,'acTemplate'       , ''
+union all select 13,'acReset'          , ''
+union all select 14,'acParentShow'     , ''
+union all select 15,'acChildDelete'    , ''
+union all select 16,'acReportCreate'   , ''
+union all select 17,'acReportEdit'     , ''
+union all select 18,'acSelect'         , ''
+union all select 19,'acHolding'        , ''
+union all select 20,'acUserAction'     , ''
+union all select 21,'acLogin'          , ''
+union all select 22,'acExit'           , ''
+union all select 23,'acRefresh'        , 'Обновление'
+
