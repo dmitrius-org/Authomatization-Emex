@@ -1,7 +1,7 @@
 if OBJECT_ID('tProtocol') is null
 --  drop table tProtocol
 /* **********************************************************
-tProtocol - Таблица протокола
+tProtocol - Протокол по заказу
 ********************************************************** */
 create table tProtocol
 (
