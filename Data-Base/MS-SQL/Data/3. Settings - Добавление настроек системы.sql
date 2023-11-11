@@ -1,63 +1,38 @@
---delete tInstrument
---delete tSettings
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  0, 'State',    'Модель состояния',  1
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  0, 'Settings', 'Настройки системы', 2
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  0, 'State',    'РњРѕРґРµР»СЊ СЃРѕСЃС‚РѕСЏРЅРёСЏ',  1
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  0, 'Settings', 'РќР°СЃС‚СЂРѕР№РєРё СЃРёСЃС‚РµРјС‹', 2
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  2, 'emexdwc', 'РќР°СЃС‚СЂРѕР№РєРё РёРЅС‚РµРіСЂР°С†РёРё СЃ emexdwc', 4--, 'TSettingsT'
 
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  2, 'emexdwc', 'Настройки интеграции с emexdwc', 4--, 'TSettingsT'
---insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select 3, 'emexdwc_username', 'Пользователь для интеграции', '', 'QXXX', 0
---insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select 3, 'emexdwc_password', 'Пароль для интеграции', '', 'qXQx', 0
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select 3, 'CoeffMaxAgree', 'РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєРѕСЌС„С„РёС†РёРµРЅС‚ РїСЂРµРІС‹С€РµРЅРёСЏ С†РµРЅС‹ РїСЂРѕРґР°Р¶Рё РґР»СЏ РєР»РёРµРЅС‚Р° РЅР°Рґ С†РµРЅРѕР№', 'РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєРѕСЌС„С„РёС†РёРµРЅС‚ РїСЂРµРІС‹С€РµРЅРёСЏ С†РµРЅС‹ РїСЂРѕРґР°Р¶Рё РґР»СЏ РєР»РёРµРЅС‚Р° РЅР°Рґ С†РµРЅРѕР№, РїРѕРєР°Р·Р°РЅРЅРѕР№ РЅР° СЃР°Р№С‚Рµ (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 1.1)', '1.1', 0
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select 3, 'AutomaticRejectionPartsByCreatOrder', 'РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РѕС‚РєР°Р· РґРµС‚Р°Р»РµР№ СЃ РѕС€РёР±РєР°РјРё РїСЂРё СЃРѕР·РґР°РЅРёРё Р·Р°РєР°Р·Р°', '', '1', 0
 
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select 3, 'CoeffMaxAgree', 'Максимальный коэффициент превышения цены продажи для клиента над ценой', 'Максимальный коэффициент превышения цены продажи для клиента над ценой, показанной на сайте (по умолчанию 1.1)', '1.1', 0
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select 3, 'AutomaticRejectionPartsByCreatOrder', 'Автоматический отказ деталей с ошибками при создании заказа', '', '1', 0
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID, ObjectTypeID) Select  1, 'Р—Р°РєР°Р·С‹',    'Р—Р°РєР°Р·С‹',  5, 3
 
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID, ObjectTypeID) Select  1, 'Заказы',    'Заказы',  5, 3
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  2, 'Orders', 'Р—Р°РєР°Р·С‹', 4--, 'TSettingsT'
 
-
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  2, 'Orders', 'Заказы', 4--, 'TSettingsT'
 go
 declare @ID numeric(18, 0)
 select @ID = InstrumentID from tInstrument where brief = 'Orders'
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'OrdersGridRowCount', 'Количество строк на странице таблицы заказов', '', '500', 0
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'TemplateOrderRefusals', 'Шаблон Excel для экспорта отказов', '', '', 0
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'UploadingRefusalsCatalog', 'Папка для сохранения файлов отказов', '', '', 0
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'UploadingRefusalsScript', 'Скрипт для выгрузки отказов', '', '', 0
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'EmexdwcClient', 'Клиент для интеграции', '', '3', 0
-
-
-
-
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'OrdersGridRowCount', 'РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РЅР° СЃС‚СЂР°РЅРёС†Рµ С‚Р°Р±Р»РёС†С‹ Р·Р°РєР°Р·РѕРІ', '', '500', 0
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'TemplateOrderRefusals', 'РЁР°Р±Р»РѕРЅ Excel РґР»СЏ СЌРєСЃРїРѕСЂС‚Р° РѕС‚РєР°Р·РѕРІ', '', '', 0
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'UploadingRefusalsCatalog', 'РџР°РїРєР° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»РѕРІ РѕС‚РєР°Р·РѕРІ', '', '', 0
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'UploadingRefusalsScript', 'РЎРєСЂРёРїС‚ РґР»СЏ РІС‹РіСЂСѓР·РєРё РѕС‚РєР°Р·РѕРІ', '', '', 0
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'EmexdwcClient', 'РљР»РёРµРЅС‚ РґР»СЏ РёРЅС‚РµРіСЂР°С†РёРё', '', '3', 0
 
 go
 declare @PID numeric(18, 0)
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  0, 'SettingsClientApp', 'Настройки для клиентского приложения', 2
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  0, 'SettingsClientApp', 'РќР°СЃС‚СЂРѕР№РєРё РґР»СЏ РєР»РёРµРЅС‚СЃРєРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ', 2
 
 select @PID = InstrumentID from tInstrument where brief = 'SettingsClientApp'
-Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  @PID, 'ClientAppCommon', 'Общие настройки', 4--, 'TSettingsT'
+Insert tInstrument ( PID, Brief, Name, InstrumentTypeID) Select  @PID, 'ClientAppCommon', 'РћР±С‰РёРµ РЅР°СЃС‚СЂРѕР№РєРё', 4--, 'TSettingsT'
 
 declare @ID numeric(18, 0)
 select @ID = InstrumentID from tInstrument where brief = 'ClientAppCommon'
-insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'DefaultSuppliers', 'Поставщик по умолчанию', 'Значение данного параметра проставляется в карточку клиента при регистрации на сайте', '', 0
-
-
-
-
-
-
-
-
-
-
-
+insert tSettings (GroupID, Brief, Name, Comment, Val, SettingType) select @ID, 'DefaultSuppliers', 'РџРѕСЃС‚Р°РІС‰РёРє РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ', 'Р—РЅР°С‡РµРЅРёРµ РґР°РЅРЅРѕРіРѕ РїР°СЂР°РјРµС‚СЂР° РїСЂРѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ РІ РєР°СЂС‚РѕС‡РєСѓ РєР»РёРµРЅС‚Р° РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РЅР° СЃР°Р№С‚Рµ', '', 0
 
 /*
-
 delete
   from tSettings 
- where brief in ('DefaultSuppliers')
-
-delete
-  from tSettings 
- where brief in ('UploadingRefusalsScript')
+ where brief in ('')
 */
 
 
@@ -66,10 +41,3 @@ select *
 select *
   from tSettings (nolock)
   where brief = 'OrdersGridRowCount'
-
---delete
---  from tSettings 
---  where brief = 'OrdersGridRowCount'
-
-
-
