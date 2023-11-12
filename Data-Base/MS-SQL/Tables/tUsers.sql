@@ -1,5 +1,5 @@
 if OBJECT_ID('tUser') is null
-drop table tUser
+--drop table tUser
 /* **********************************************************
 tUser - пользователи
 ********************************************************** */
@@ -11,7 +11,7 @@ create table tUser
 ,isBlock           bit      default 0  --
 ,DateBlock         datetime       null
 ,Login             nvarchar(512) 
-
+--
 ,inDatetime        datetime default GetDate()      --
 ,updDatetime       datetime default GetDate()      --
 )
