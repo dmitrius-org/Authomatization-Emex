@@ -16,6 +16,7 @@ as
 
   declare @r int = 0
 
+  -- Права на интерфейс
   Delete pGrant from pGrant (rowlock) where spid = @@spid
 
   insert pGrant
@@ -48,16 +49,14 @@ as
           and g.MenuID     = m.MenuID
    order by m.n
 
-
- 
- 
   if @ObjectType = 0 
     Update p
-       set p.Value = isnull(cast((case 
+       set /*p.Value = isnull(cast((case 
                                      when g.MenuID is not null then 1
                                      else 0
                                   end) as bit), p.Value)
-         ,p.IsGroup = case 
+         ,*/
+          p.IsGroup = case 
                         when g.MenuID is not null then 1
                         else 0
                       end
@@ -81,8 +80,29 @@ as
                  ) as g 
      where p.Spid = @@Spid
 
-  -- order by m.N
 
+  -- права на объекты учета
+  delete p
+    from pGrantObject p (rowlock)
+   where p.Spid=@@SPID
+
+  insert pGrantObject
+        (Spid
+        ,GrantObjectID
+        ,ObjectID
+        ,ObjectType
+        ,LinkID
+        ,LinkType
+        )
+  select @@Spid
+        ,t.GrantObjectID
+        ,t.ObjectID
+        ,t.ObjectType
+        ,t.LinkID
+        ,t.LinkType
+    from tGrantObject t (nolock)
+   where t.ObjectID   = @ObjectID
+     and t.ObjectType = @ObjectType
 
 
  exit_:
