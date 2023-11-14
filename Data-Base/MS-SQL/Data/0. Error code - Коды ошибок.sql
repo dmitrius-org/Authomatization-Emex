@@ -1,11 +1,15 @@
 delete from tRetCode
 -- tUsers
-insert tRetCode (RetCode, Message) select 1, 'Пользователь с заданным логином существует!'
-insert tRetCode (RetCode, Message) select 2, 'Пользователь должен иметь права [sysadmin]!'
-insert tRetCode (RetCode, Message) select 3, 'Ошибка при добавлении пользователя!'
-insert tRetCode (RetCode, Message) select 4, 'Ошибка при удалении пользователя!'
-insert tRetCode (RetCode, Message) select 5, 'Старый и новый пароли не должны совподать!'
-insert tRetCode (RetCode, Message) select 6, 'Удаление запрещено, пользователь используется в таблице заказов!'
+insert tRetCode (RetCode, Message) select 1,   'Пользователь с заданным логином существует!'
+insert tRetCode (RetCode, Message) select 2,   'Пользователь должен иметь права [sysadmin]!'
+insert tRetCode (RetCode, Message) select 3,   'Ошибка при добавлении пользователя!'
+insert tRetCode (RetCode, Message) select 4,   'Ошибка при удалении пользователя!'
+insert tRetCode (RetCode, Message) select 5,   'Старый и новый пароли не должны совподать!'
+insert tRetCode (RetCode, Message) select 6,   'Удаление запрещено, пользователь используется в таблице заказов!'
+insert tRetCode (RetCode, Message) select 7,   'Группа с заданным сокращением существует!'
+insert tRetCode (RetCode, Message) select 8,   'Удаление запрещено, в группе имеются пользователи!'
+insert tRetCode (RetCode, Message) select 9,   'Связь пользователя и группы существет!'
+insert tRetCode (RetCode, Message) select 10,  'Клиент существует!'
 
 -- tClients
 insert tRetCode (RetCode, Message) select 100, 'Клиент с заданным наименованием существует!'
@@ -40,7 +44,7 @@ insert tRetCode (RetCode, Message) select 333, 'Действие с заданным сокращением 
 
 -- tEmployees
 insert tRetCode (RetCode, Message) select 450, 'Сотрудник с заданным наименованием!'
-
+insert tRetCode (RetCode, Message) select 451, 'Удаление запрещено, сотрудник связан с клиентом!'
 
 -- tOrders 500 - 600
 insert tRetCode (RetCode, Message) select 500, 'Отсутствуют объекты для выполнения операции!'
@@ -70,4 +74,5 @@ insert tRetCode (RetCode, Message) select 523, 'Не найден каталог для сохранения
 insert tRetCode (RetCode, Message) select 524, 'Не найден скрипт для выгрузки отказов!'
 insert tRetCode (RetCode, Message) select 525, 'Данный файл уже в обработке!'
 insert tRetCode (RetCode, Message) select 526, 'Невозможно разместить заказы так как выбраны детали разных клиентов (кабинетов EMEX)!'
+insert tRetCode (RetCode, Message) select 527, 'Не выбраны позиции для заказа!'
 --
