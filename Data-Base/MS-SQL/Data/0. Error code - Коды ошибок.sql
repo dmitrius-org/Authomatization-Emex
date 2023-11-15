@@ -10,6 +10,7 @@ insert tRetCode (RetCode, Message) select 7,   'Группа с заданным сокращением су
 insert tRetCode (RetCode, Message) select 8,   'Удаление запрещено, в группе имеются пользователи!'
 insert tRetCode (RetCode, Message) select 9,   'Связь пользователя и группы существет!'
 insert tRetCode (RetCode, Message) select 10,  'Клиент существует!'
+insert tRetCode (RetCode, Message) select 11,  'Удаление запрещено, пользователь входит в группу прав!'
 
 -- tClients
 insert tRetCode (RetCode, Message) select 100, 'Клиент с заданным наименованием существует!'
