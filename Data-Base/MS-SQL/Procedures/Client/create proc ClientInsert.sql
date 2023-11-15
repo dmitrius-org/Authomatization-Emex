@@ -11,9 +11,10 @@ create proc ClientInsert
 			 ,@SuppliersID          numeric(18,0)=null--поставщик
 			 ,@IsActive             bit
 			 ,@Taxes                money        -- налоги
-             ,@ResponseType         int          -- “ип ответа
-             ,@NotificationMethod   int          -- —пособ оповещени¤
-             ,@NotificationAddress  nvarchar(256)-- јдрес оповещени¤
+             ,@ResponseType         int          -- Тип ответа
+             ,@NotificationMethod   int          -- Способ оповещения
+             ,@NotificationAddress  nvarchar(256)-- Адрес оповещения
+             ,@ClientTypeID	        int         =null -- Тип клиента
 
 as
   declare @r int = 0
@@ -24,7 +25,7 @@ as
                from tClients u (nolock)
               where u.Brief = @Brief)
   begin
-    set @r = 100 -- ' лиент с заданным наименование существует'
+    set @r = 100 -- 'Клиент с заданным наименование существует'
     goto exit_
   end
 
@@ -43,6 +44,7 @@ as
               ,ResponseType
               ,NotificationMethod
               ,NotificationAddress
+              ,ClientTypeID	
 		       )
 		OUTPUT INSERTED.ClientID INTO @ID
 		select @Brief     
@@ -54,6 +56,7 @@ as
               ,@ResponseType
               ,@NotificationMethod
               ,@NotificationAddress
+              ,@ClientTypeID	
 
 		Select @ClientID = ID from @ID	    
  

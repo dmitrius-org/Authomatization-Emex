@@ -14,6 +14,7 @@ create proc ClientUpdate
              ,@ResponseType         int          -- Тип ответа
              ,@NotificationMethod   int          -- Способ оповещения
              ,@NotificationAddress  nvarchar(256)-- Адрес оповещения
+             ,@ClientTypeID	        int         =null
 
 as
   declare @r int = 0
@@ -41,6 +42,7 @@ as
               ,ResponseType        = @ResponseType
               ,NotificationMethod  = @NotificationMethod
               ,NotificationAddress = @NotificationAddress
+              ,ClientTypeID        = @ClientTypeID
 		  from tClients (rowlock)
 	     where ClientID     = @ClientID 
 
