@@ -7,16 +7,19 @@ create table pGrant
 (
  Spid              numeric(18, 0) 
 ,GrantID           numeric(18, 0)   --
-,UserID            numeric(18, 0)   -- 
+,ObjectID          numeric(18, 0)   -- 
 ,ParentID          numeric(18, 0)   -- 
 ,MenuID            numeric(18, 0)   --
 ,N                 int
 ,Caption           nvarchar(512)    -- 
-,Value             bit
 ,Type              int
+,Value             bit              -- Индивидуальное право объекта
+,GroupValue        bit              -- Право группы/роли
+,IsGroup           bit              -- Входит в группу  
+,Groups            nvarchar(512)    -- Наименовния групп
 )
 go
-create unique index ao1 on pGrant(Spid, UserID, MenuID)
+create unique index ao1 on pGrant(Spid, ObjectID, MenuID)
 go
 create index ao2 on pGrant(GrantID)
 go

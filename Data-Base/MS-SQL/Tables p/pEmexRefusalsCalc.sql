@@ -19,6 +19,8 @@ grant all on pEmexRefusalsCalc to public
 go
 exec dbo.sys_setTableDescription @table = 'pEmexRefusalsCalc', @desc = 'Таблица отказы'
 go
+
+
 drop table if exists pEmexRefusalsConfirm
 go
 /* **********************************************************
