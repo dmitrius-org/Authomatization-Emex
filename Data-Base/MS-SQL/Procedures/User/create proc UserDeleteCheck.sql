@@ -17,6 +17,16 @@ as
     goto exit_
   end
 
+
+  if exists (select 1 
+               from tUserReliation u (nolock)
+              where u.LinkType= 2
+                and u.UserID  = @UserID)
+  begin
+    set @r = 11 -- Удаление запрещено, пользователь входит в группу прав!
+    goto exit_
+  end
+
  exit_:
  return @r
 go
