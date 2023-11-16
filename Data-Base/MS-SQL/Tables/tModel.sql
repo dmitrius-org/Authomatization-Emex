@@ -6,8 +6,8 @@ create table tModel
 (ModelID           numeric(18, 0) identity
 ,InstrumentID      numeric(18,0)  not null -- Ид модели tInstrument.InstrumentID
 ,StateID           numeric(18,0)  not null -- ИД состояния
-,ActionID          nvarchar(64)            -- ИД действия
-,TargetStateID     nvarchar(128)           -- ИД состояния
+,ActionID          numeric(18,0)           -- ИД действия
+,TargetStateID     numeric(18,0)           -- ИД состояния
 ,InstrumentTypeID  numeric(18,0)  not null -- типы объект tInstrumentType.InstrumentTypeID 
 ,Flag              int                     -- Флаги
 --
@@ -39,3 +39,4 @@ insert tModel (InstrumentID, StateID, ActionID, InstrumentTypeID, Flag) select 4
 insert tModel (InstrumentID, StateID, ActionID, InstrumentTypeID, Flag) select 4, 11,  0,  6, 0  --Изменение цены
 insert tModel (InstrumentID, StateID, ActionID, InstrumentTypeID, Flag) select 4, 12,  0,  6, 0  --Отказан
 */
+
