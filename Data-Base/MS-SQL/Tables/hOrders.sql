@@ -61,7 +61,8 @@ create table hOrders
 ,Invoice                 nvarchar(64)   -- Инвойс, номер отправки
 ,DestinationLogo         nvarchar(20)   -- Направление отгрузки
 ,FileDate                datetime
-,Commission              money          -- Комиссия от продажи	 
+,Commission              money          -- Комиссия от продажи	
+,ClientOrderNum          int            -- Номер заказа	клиента
 --
 ,Flag                    int
 --

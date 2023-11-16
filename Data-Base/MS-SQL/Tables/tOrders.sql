@@ -63,7 +63,8 @@ create table tOrders
 ,ParentID                numeric(18,0)  -- Родительский идентификатор заказа. Проставляется при дроблении заказа.
 ,ID                      numeric(18,0) 
 ,FileDate                datetime
-,Commission              money          -- Комиссия от продажи. Рассчитывается в момент создания заказа и не меняется	
+,Commission              money          -- Комиссия от продажи. Рассчитывается в момент создания заказа и не меняется
+,ClientOrderNum          int            -- Номер заказа	клиента
 --
 ,UserID                  numeric(18,0) default dbo.GetUserID()
 ,inDatetime              datetime      default GetDate()      --
@@ -77,6 +78,7 @@ create index ao2 on tOrders(ClientID, OrderNum)
 go
 grant select on tOrders to public
 go
+ 
 -- Описание таблицы
 exec dbo.sys_setTableDescription @table = 'tOrders', @desc = 'Таблица Заказы'
 -- Описание полей
@@ -134,5 +136,5 @@ exec dbo.sys_setTableDescription 'tOrders', 'ParentID'                ,'Роди
 exec dbo.sys_setTableDescription 'tOrders', 'Invoice'                 ,'Инвойс, номер отправки'
 exec dbo.sys_setTableDescription 'tOrders', 'FileDate'                ,'Дата файла'
 exec dbo.sys_setTableDescription 'tOrders', 'DestinationLogo'         ,'Направление отгрузки'
-exec dbo.sys_setTableDescription 'tOrders', 'Commission'              ,'Комиссия от продажи. Рассчитывается в момент создания заказа и не меняется	'
- 
+exec dbo.sys_setTableDescription 'tOrders', 'Commission'              ,'Комиссия от продажи. Рассчитывается в момент создания заказа и не меняется'
+exec dbo.sys_setTableDescription 'tOrders', 'ClientOrderNum'          ,'Номер заказа клиента'

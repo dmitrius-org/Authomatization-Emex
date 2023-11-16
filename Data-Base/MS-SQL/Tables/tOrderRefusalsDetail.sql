@@ -8,6 +8,7 @@ create table tOrderRefusalsDetail
  ID                   numeric(18,0)  identity -- 
 ,OrderRefusalsID      numeric(18,0)           --
 ,OrderID              numeric(18,0)           --
+,Quantity             int
 ,Flag                 int                     --
 )
 go
